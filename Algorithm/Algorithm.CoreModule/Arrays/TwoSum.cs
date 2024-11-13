@@ -17,6 +17,12 @@ namespace Algorithm.CoreModule.Arrays
 
     public class TwoSum
     {
+        /// <summary>
+        /// 從陣列中找到兩個數字，使它們的和等於目標值，並回傳它們的索引（以 1 為基底）
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public int[] FindTwoSumIndices(int[] numbers, int target)
         {
             int leftIndex = 0;

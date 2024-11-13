@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 namespace Algorithm.CoreModule.Arrays
 {
     /*
+    題目限制
     nums 是已排序的整數陣列。
     只修改陣列並在常數空間內完成。
     輸入陣列可能是空的。
-     */
+    */
 
     public class RemoveDuplicates
     {
+        /// <summary>
+        /// 移除排序陣列中的重複項，返回最大不重複的數量
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
         public int FindMaxUniqueLength(int[] numbers)
         {
             if (numbers == null || numbers.Length == 0) return 0;
