@@ -49,5 +49,16 @@ namespace Algorithm.Test
 
             Assert.That(results, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { -1, 2, 1, -4 }, 1, 2)]
+        [TestCase(new int[] { -1, 2, -4 }, 1, -3)]
+        public void GivenNumbers_WhenFindClosestSumOfThreeNumbers_ThenReturnClosestSumResult(int[] numbers, int target, int expected)
+        {
+            var threeSumClosest = new ThreeSumClosest();
+
+            var results = threeSumClosest.FindClosestSumOfThreeNumbers(numbers, target);
+
+            Assert.That(results, Is.EqualTo(expected));
+        }
     }
 }
