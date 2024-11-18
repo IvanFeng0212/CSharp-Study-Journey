@@ -25,6 +25,19 @@ namespace Algorithm.CoreModule.Arrays
         /// <returns></returns>
         public int[] FindTwoSumIndices(int[] numbers, int target)
         {
+            /*
+            解題思路
+            由於陣列已排序，因此可以利用「雙指針」的特性高效地搜尋答案：
+
+            初始化兩個指針，left 指針指向陣列的開頭，right 指針指向陣列的末尾。
+            計算 numbers[left] + numbers[right] 的和：
+            如果和等於 target，則找到解並返回。
+            如果和小於 target，表示 numbers[left] 太小，將 left 向右移動一格。
+            如果和大於 target，表示 numbers[right] 太大，將 right 向左移動一格。
+            重複步驟 2，直到找到符合條件的兩個數字。
+            此方法的時間複雜度為 O(n)，只需遍歷一次陣列。
+            */
+
             int leftIndex = 0;
             int rightIndex = numbers.Length - 1;
             while (leftIndex < rightIndex)

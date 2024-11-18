@@ -23,6 +23,19 @@ namespace Algorithm.CoreModule.Arrays
         /// <returns></returns>
         public int FindClosestSumOfThreeNumbers(int[] numbers, int target)
         {
+            /*
+            解題思路
+            排序：首先將 nums 陣列排序，方便後續使用 Two Pointers 技巧。
+            遍歷數組並設置指針：
+            使用 i 遍歷每個數字，並將當前數字作為三數之一。
+            對於每個 i，設定 left 指針為 i+1，right 指針為陣列的最後一位。
+            使用 Two Pointers：
+            計算 currentSum = nums[i] + nums[left] + nums[right]。
+            若 currentSum 接近 target，更新最近的和 closestSum。
+            若 currentSum 小於 target，移動 left 指針；若 currentSum 大於 target，移動 right 指針。
+            返回結果：最後返回最接近的 closestSum。
+            */
+
             if (numbers.Length == 3) return numbers.Sum(x => x);
 
             // 排序陣列

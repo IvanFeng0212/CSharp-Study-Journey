@@ -60,5 +60,16 @@ namespace Algorithm.Test
 
             Assert.That(results, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 2, 0, 2, 1, 1, 0 }, new int[] { 0, 0, 1, 1, 2, 2 })]
+        [TestCase(new int[] { 1, 0, 2, 1, 2, 0, 0 }, new int[] { 0, 0, 0, 1, 1, 2, 2 })]
+        public void GivenNumbers_WhenSortColorsInPlace_ThenReturnSortedColors(int[] numbers, int[] expected)
+        {
+            var sortColors = new SortColors();
+
+            var results = sortColors.SortColorsInPlace(numbers);
+
+            Assert.That(results, Is.EqualTo(expected));
+        }
     }
 }

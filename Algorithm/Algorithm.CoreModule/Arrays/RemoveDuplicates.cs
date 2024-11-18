@@ -22,6 +22,17 @@ namespace Algorithm.CoreModule.Arrays
         /// <returns></returns>
         public int FindMaxUniqueLength(int[] numbers)
         {
+            /*
+            解題思路
+            因為陣列是排序的，我們可以利用 Two Pointers 的方式來解決這個問題，具體步驟如下：
+
+            使用兩個指針：slow 和 fast。
+            初始化時，slow 指針在位置 0，fast 指針從位置 1 開始。
+            當 fast 指針所指的元素和 slow 指針所指的元素不一樣時，說明找到了一個新的不重複的元素。此時將 slow 指針向前移動一位，並將 fast 所指的元素複製到 slow 的位置。
+            若兩個指針指的值相同，fast 指針繼續向右移動。
+            當 fast 遍歷完陣列後，slow + 1 即為不重複的元素數量。
+            */
+
             if (numbers == null || numbers.Length == 0) return 0;
 
             int slowIndex = 0;
