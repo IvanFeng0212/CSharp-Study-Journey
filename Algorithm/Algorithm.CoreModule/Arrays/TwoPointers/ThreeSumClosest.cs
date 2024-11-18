@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.CoreModule.Arrays
+namespace Algorithm.CoreModule.Arrays.TwoPointers
 {
     /*
     題目限制：

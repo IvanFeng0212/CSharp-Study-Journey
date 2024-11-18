@@ -1,4 +1,4 @@
-﻿using Algorithm.CoreModule.Arrays;
+﻿using Algorithm.CoreModule.Arrays.TwoPointers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace Algorithm.Test
     */
 
     [TestFixture]
-    public class ArrayTest
+    public class Array_TwoPointers_Test
     {
         [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 9, new int[] { 2, 7 })]
         [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 8, new int[] { 1, 7 })]
