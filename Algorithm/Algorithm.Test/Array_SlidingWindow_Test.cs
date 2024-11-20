@@ -25,5 +25,19 @@ namespace Algorithm.Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase("abcabcbb", 3)]
+        [TestCase("bbbbb", 1)]
+        [TestCase("pwwkew", 3)]
+        [TestCase("abcddca", 4)]
+        [TestCase("abcbdaac", 4)]
+        public void GivenAString_WhenFindLongestUniqueSubstringLength_ThenReturnLongestUniqueSubstringLength(string inputValue, int expected)
+        {
+            var longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
+
+            var result = longestSubstringWithoutRepeatingCharacters.FindLongestUniqueSubstringLengthOptimized(inputValue);
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
