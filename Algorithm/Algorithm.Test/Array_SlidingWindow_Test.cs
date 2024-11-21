@@ -17,12 +17,15 @@ namespace Algorithm.Test
     public class Array_SlidingWindow_Test
     {
         [TestCase(new int[] { 2, 1, 5, 1, 3, 2 }, 3, 9)]
-        public void GivenNumbersArray_WhenFindMaxSumForSpecifiedSubArrayLength_ThenReturnsExpectedMaxSum(int[] numbers, int subArrayLength, int expected)
+        public void GivenNumbersArray_WhenFindMaxSumForSubArrayLength_ThenReturnsExpectedMaxSum(int[] numbers, int subArrayLength, int expected)
         {
+            // Arrange
             var findMaxSumSubArray = new FindMaxSumSubArray();
 
+            // Act
             var result = findMaxSumSubArray.FindMaxSumForSubArrayLengthOptimized(numbers, subArrayLength);
 
+            // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
 
@@ -31,12 +34,30 @@ namespace Algorithm.Test
         [TestCase("pwwkew", 3)]
         [TestCase("abcddca", 4)]
         [TestCase("abcbdaac", 4)]
-        public void GivenAString_WhenFindLongestUniqueSubstringLength_ThenReturnLongestUniqueSubstringLength(string inputValue, int expected)
+        public void GivenAString_WhenFindLongestUniqueSubstringLength_ThenReturnsExpectedLength(string inputValue, int expected)
         {
+            // Arrange
             var longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
 
+            // Act
             var result = longestSubstringWithoutRepeatingCharacters.FindLongestUniqueSubstringLengthOptimized(inputValue);
 
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(new int[] { 1, 2, 1 }, 3)]
+        [TestCase(new int[] { 0, 1, 2, 2 }, 3)]
+        [TestCase(new int[] { 3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4 }, 5)]
+        public void GivenFruitArray_WhenCollectMaximumFruits_ThenReturnsExpectedMaxFruits(int[] fruits, int expected)
+        {
+            // Arrange
+            var maximumNumberOfFruitsCollectedInTwoBaskets = new MaximumNumberOfFruitsCollectedInTwoBaskets();
+
+            // Act
+            var result = maximumNumberOfFruitsCollectedInTwoBaskets.CollectMaximumFruits(fruits);
+
+            // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
     }
