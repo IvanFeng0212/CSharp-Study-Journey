@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DesignPattern.CoreModule.Interfaces.Decorator;
+using DesignPattern.CoreModule.Interfaces.Factory.AbstractFactory;
 using DesignPattern.CoreModule.Interfaces.Factory.SimpleFactory;
 using DesignPattern.CoreModule.Models.Decorator;
+using DesignPattern.CoreModule.Models.Factory.AbstractFactory;
 using DesignPattern.CoreModule.Models.Factory.SimpleFactory;
 using DesignPattern.CoreModule.Models.Observer;
 
@@ -13,6 +15,9 @@ using DesignPattern.CoreModule.Models.Observer;
 
 //// 簡單工廠模式
 // SimpleFactory();
+
+//// 抽象工廠模式
+// AbstractFactory();
 
 #region 觀察者模式
 
@@ -173,3 +178,49 @@ static void SimpleFactory()
 }
 
 #endregion 簡單工廠模式
+
+#region 抽象工廠模式
+
+/*
+意圖
+提供一個創建一系列相關或相互依賴物件的接口，而無需指定它們的特定類別。
+
+適用場景
+當系統需要建立多個相關或依賴的對象，而不需要指定特定類別時。
+
+使用場景
+創建跨平台應用程式時，產生不同作業系統的程式。
+
+應用實例
+假設有不同類型的衣櫃，每個衣櫃（具體工廠）只能存放一類衣服（成套的具體產品），
+如商務裝、時尚裝等。每套衣服包括具體的上衣和褲子（具體產品）。
+所有衣櫃都是衣櫃類別（抽象工廠）的具體實現，
+所有上衣和褲子分別實現上衣介面和褲子介面（抽象產品）。
+
+優點
+確保同一產品族的物件一起工作。
+客戶端不需要知道每個物件的具體類，簡化了程式碼。
+
+缺點
+擴展產品族非常困難。
+增加一個新的產品族需要修改抽象工廠和所有特定工廠的程式碼。
+
+注意事項
+增加新的產品族相對容易，而增加新的產品等級結構較為困難。
+*/
+static void AbstractFactory()
+{
+    IBubbleTeaShopFactory coco = FactoryProducer.GetBubbleShop("Coco");
+    IBubbleTea cocoBlackTea = coco.GetBubbleTea("blacktea");
+    Console.WriteLine($"{cocoBlackTea.GetDescription()}，價格:{cocoBlackTea.Cost()}");
+    IBubbleTea cocoGreentea = coco.GetBubbleTea("greentea");
+    Console.WriteLine($"{cocoGreentea.GetDescription()}，價格:{cocoGreentea.Cost()}");
+
+    IBubbleTeaShopFactory chingshin = FactoryProducer.GetBubbleShop("ChingShin");
+    IBubbleTea chingshinBlackTea = chingshin.GetBubbleTea("blacktea");
+    Console.WriteLine($"{chingshinBlackTea.GetDescription()}，價格:{chingshinBlackTea.Cost()}");
+    IBubbleTea chingshinGreentea = chingshin.GetBubbleTea("greentea");
+    Console.WriteLine($"{chingshinGreentea.GetDescription()}，價格:{chingshinGreentea.Cost()}");
+}
+
+#endregion 抽象工廠模式
