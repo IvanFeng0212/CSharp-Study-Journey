@@ -60,5 +60,18 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 2, 3, 1, 2, 4, 3 }, 7, 2)]
+        public void GivenNumbersArray_WhenFindMinLengthForTargetSum_ThenReturnsExpectedLength(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var minSubArrayLen = new MinSubArrayLen();
+
+            // Act
+            var result = minSubArrayLen.FindMinLengthForTargetSum(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
