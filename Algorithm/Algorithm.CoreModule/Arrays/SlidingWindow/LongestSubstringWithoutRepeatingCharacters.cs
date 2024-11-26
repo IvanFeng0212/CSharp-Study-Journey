@@ -73,7 +73,7 @@ namespace Algorithm.CoreModule.Arrays.SlidingWindow
             int leftIndex = 0;
             int maxLength = 0;
             List<char> tempUniqueChar = new List<char>();
-            for (int rightIndex = 0; rightIndex < inputValue.Length - 1; rightIndex += 1)
+            for (int rightIndex = 0; rightIndex < inputValue.Length; rightIndex += 1)
             {
                 // 當右指針的字符已在集合中時
                 while (tempUniqueChar.Contains(inputValue[rightIndex]))
