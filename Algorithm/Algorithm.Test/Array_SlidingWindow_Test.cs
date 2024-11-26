@@ -73,5 +73,18 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 1, 12, -5, -6, 50, 3 }, 4, 12.75)]
+        public void GivenNumbersArray_WhenFindMaxAverageForSubArrayLength_ThenReturnsExpectedAverage(int[] numbers, int subArrayLength, double expected)
+        {
+            // Arrange
+            var findMaxAverage = new FindMaxAverage();
+
+            // Act
+            var result = findMaxAverage.FindMaxAverageForSubArrayLength(numbers, subArrayLength);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
