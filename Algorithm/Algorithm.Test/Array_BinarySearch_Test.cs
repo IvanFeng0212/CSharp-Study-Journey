@@ -32,5 +32,21 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 1, 5)]
+        [TestCase(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1)]
+        [TestCase(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 7, 3)]
+        [TestCase(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 5, 1)]
+        public void GivenRotatedSortedArray_WhenFindTargetIndex_ThenReturnExpectedIndex(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var searchInRotatedSortedArray = new SearchInRotatedSortedArray();
+
+            // Act
+            var result = searchInRotatedSortedArray.FindTargetIndex(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
