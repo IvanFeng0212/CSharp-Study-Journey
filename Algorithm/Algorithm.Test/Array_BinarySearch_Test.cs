@@ -48,5 +48,20 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 1, 3, 5, 6 }, 5, 2)]
+        [TestCase(new int[] { 1, 3, 5, 6 }, 2, 1)]
+        [TestCase(new int[] { 1, 3, 5, 6 }, 7, 4)]
+        public void GivenSortedArray_WhenFindPosition_ThenReturnExpectedIndex(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var searchInsertPosition = new SearchInsertPosition();
+
+            // Act
+            var result = searchInsertPosition.FindPosition(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
