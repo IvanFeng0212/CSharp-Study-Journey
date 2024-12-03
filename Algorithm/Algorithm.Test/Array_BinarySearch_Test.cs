@@ -63,5 +63,20 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 7, 8)]
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 4, 3)]
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 15, 15)]
+        public void GivenSortedArray_WhenFindClosestNumber_ThenReturnExpectedIndex(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var closestElementToTarget = new ClosestElementToTarget();
+
+            // Act
+            var result = closestElementToTarget.FindClosestNumber(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
