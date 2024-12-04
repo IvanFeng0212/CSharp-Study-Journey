@@ -92,5 +92,64 @@ namespace Algorithm.CoreModule.Arrays.TwoPointers
 
             return new int[] { numbers[greatThanTargetLeftIndex], numbers[greatThanTargetRightIndex] };
         }
+
+        /// <summary>
+        /// 找到陣列中和最接近目標值的兩個數字。
+        /// </summary>
+        /// <param name="numbers">升序排列的整數數組</param>
+        /// <param name="target">目標和</param>
+        /// <returns>和最接近目標值的兩個數字</returns>
+        public int[] FindClosestSumPairOptimized(int[] numbers, int target)
+        {
+            /*
+            解題思路：
+            1. 初始化雙指針：將左指針 (left) 放在數組的起始位置，右指針 (right) 放在數組的末尾。
+            2. 迭代：當 left 小於 right 時：
+                a. 計算 left 和 right 指向元素的和。
+                b. 如果這個和恰好等於目標值，直接返回該配對。
+                c. 如果這個和比之前紀錄的和更接近目標值，更新最接近的和及其配對。
+                d. 如果當前的和小於目標值，將 left 向右移動以增加和。
+                e. 如果當前的和大於目標值，將 right 向左移動以減少和。
+            3. 返回最接近的配對：迴圈結束後，返回紀錄的最接近配對。
+            */
+
+            int leftIndex = 0;
+            int rightIndex = numbers.Length - 1;
+
+            if (numbers.Length == 2 && numbers[leftIndex] + numbers[rightIndex] != target)
+                return new int[0];
+
+            int closestLeftIndex = 0;
+            int closestRightIndex = 0;
+            int closestSum = int.MaxValue;
+
+            while (leftIndex < rightIndex)
+            {
+                int sum = numbers[leftIndex] + numbers[rightIndex];
+
+                if (sum == target)
+                {
+                    return new int[] { numbers[leftIndex], numbers[rightIndex] };
+                }
+
+                if (Math.Abs(target - sum) < Math.Abs(target - closestSum))
+                {
+                    closestSum = sum;
+                    closestLeftIndex = leftIndex;
+                    closestRightIndex = rightIndex;
+                }
+
+                if (sum < target)
+                {
+                    leftIndex++;
+                }
+                else
+                {
+                    rightIndex--;
+                }
+            }
+
+            return new int[] { numbers[closestLeftIndex], numbers[closestRightIndex] };
+        }
     }
 }
