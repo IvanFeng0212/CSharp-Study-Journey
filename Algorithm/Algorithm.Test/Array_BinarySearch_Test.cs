@@ -78,5 +78,19 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5)]
+        [TestCase(new int[] { 1, 2, 3, 1 }, 2)]
+        public void GivenAnArray_WhenFindPeakIndex_ThenReturnExpectedIndex(int[] numbers, int expected)
+        {
+            // Arrange
+            var findPeakElement = new FindPeakElement();
+
+            // Act
+            var result = findPeakElement.FindPeakIndex(numbers);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
