@@ -48,5 +48,49 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 1, 3, 5, 6 }, 5, 2)]
+        [TestCase(new int[] { 1, 3, 5, 6 }, 2, 1)]
+        [TestCase(new int[] { 1, 3, 5, 6 }, 7, 4)]
+        public void GivenSortedArray_WhenFindPosition_ThenReturnExpectedIndex(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var searchInsertPosition = new SearchInsertPosition();
+
+            // Act
+            var result = searchInsertPosition.FindPosition(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 7, 8)]
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 4, 3)]
+        [TestCase(new int[] { 1, 3, 5, 8, 12, 15 }, 15, 15)]
+        public void GivenSortedArray_WhenFindClosestNumber_ThenReturnExpectedIndex(int[] numbers, int target, int expected)
+        {
+            // Arrange
+            var closestElementToTarget = new ClosestElementToTarget();
+
+            // Act
+            var result = closestElementToTarget.FindClosestNumber(numbers, target);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5)]
+        [TestCase(new int[] { 1, 2, 3, 1 }, 2)]
+        public void GivenAnArray_WhenFindPeakIndex_ThenReturnExpectedIndex(int[] numbers, int expected)
+        {
+            // Arrange
+            var findPeakElement = new FindPeakElement();
+
+            // Act
+            var result = findPeakElement.FindPeakIndex(numbers);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
