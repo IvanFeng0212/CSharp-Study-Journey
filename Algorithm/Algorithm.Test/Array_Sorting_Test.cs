@@ -56,5 +56,18 @@ namespace Algorithm.Test
             // 比較集合時不考慮內容的順序，但內部的子集合順序不可以不同
             Assert.That(result, Is.EquivalentTo(expected));
         }
+
+        [TestCase(new string[] { "apple", "banana", "cherry", "date" }, new string[] { "aaabnn", "adet", "aelpp", "cehrry" })]
+        public void GivenAnStringArray_WhenSortStringsByLettersAndArray_ThenReturnExpectedIndex(string[] words, string[] expected)
+        {
+            // Arrange
+            var stringSorter = new StringSorter();
+
+            // Act
+            var result = stringSorter.SortStringsByLettersAndArray(words);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
