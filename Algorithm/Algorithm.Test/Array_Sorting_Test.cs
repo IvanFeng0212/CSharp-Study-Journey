@@ -58,13 +58,26 @@ namespace Algorithm.Test
         }
 
         [TestCase(new string[] { "apple", "banana", "cherry", "date" }, new string[] { "aaabnn", "adet", "aelpp", "cehrry" })]
-        public void GivenAnStringArray_WhenSortStringsByLettersAndArray_ThenReturnExpectedIndex(string[] words, string[] expected)
+        public void GivenAStringArray_WhenSortStringsByLettersAndArray_ThenReturnExpectedIndex(string[] words, string[] expected)
         {
             // Arrange
             var stringSorter = new StringSorter();
 
             // Act
             var result = stringSorter.SortStringsByLettersAndArray(words);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(new int[] { 3, 1, 2, 4, 5, 6 }, new int[] { 6, 4, 2, 1, 5, 3 })]
+        public void GivenAnArray_WhenSortEvenOdd_ThenReturnExpectedIndex(int[] numbers, int[] expected)
+        {
+            // Arrange
+            var sortArrayByParity = new SortArrayByParity();
+
+            // Act
+            var result = sortArrayByParity.SortEvenOdd(numbers);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
