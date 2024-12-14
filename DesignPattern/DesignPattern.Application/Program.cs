@@ -34,8 +34,8 @@ using DesignPattern.CoreModule.Models.Template;
 //// 外觀模式
 // Facade();
 
-// 模板模式
-Template();
+//// 模板模式
+// Template();
 
 #region 觀察者模式
 
