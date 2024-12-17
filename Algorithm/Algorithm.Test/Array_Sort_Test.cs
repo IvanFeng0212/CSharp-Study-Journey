@@ -15,7 +15,7 @@ namespace Algorithm.Test
 
     public class Array_Sort_Test
     {
-        [TestCase(new int[] { 8, 3, 7, 4, 9, 2 }, new int[] { 2, 3, 4, 7, 8, 9 })]
+        [TestCase(new int[] { 8, 3, 10, 7, 4, 9, 2 }, new int[] { 2, 3, 4, 7, 8, 9, 10 })]
         [TestCase(new int[] { 8, 3, 7, 4, 9, 5 }, new int[] { 3, 4, 5, 7, 8, 9 })]
         public void GivenAnArray_WhenQuickSort_ThenReturnExpectedArray(int[] numbers, int[] expected)
         {
@@ -24,6 +24,20 @@ namespace Algorithm.Test
 
             // Act
             var result = quickSort.Sort(numbers);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(new int[] { 8, 3, 7, 4, 9, 2 }, new int[] { 2, 3, 4, 7, 8, 9 })]
+        [TestCase(new int[] { 8, 3, 7, 4, 9, 5 }, new int[] { 3, 4, 5, 7, 8, 9 })]
+        public void GivenAnArray_WhenInsertionSort_ThenReturnExpectedArray(int[] numbers, int[] expected)
+        {
+            // Arrange
+            var insertionSort = new InsertionSort();
+
+            // Act
+            var result = insertionSort.Sort(numbers);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
