@@ -42,5 +42,19 @@ namespace Algorithm.Test
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(new int[] { 8, 3, 7, 4, 9, 2 }, new int[] { 2, 3, 4, 7, 8, 9 })]
+        [TestCase(new int[] { 8, 3, 7, 4, 9, 5 }, new int[] { 3, 4, 5, 7, 8, 9 })]
+        public void GivenAnArray_WhenMergeSort_ThenReturnExpectedArray(int[] numbers, int[] expected)
+        {
+            // Arrange
+            var mergeSort = new MergeSort();
+
+            // Act
+            var result = mergeSort.Sort(numbers);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
