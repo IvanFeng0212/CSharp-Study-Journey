@@ -44,5 +44,23 @@ namespace LeetCode.CoreModule.LinkedList
 
             return dummy.next;
         }
+
+        public ListNode AddTwoNumbers2(ListNode l1, ListNode l2)
+        {
+            return AddTwoNumbersRecursive(l1, l2, 0);
+        }
+
+        private ListNode AddTwoNumbersRecursive(ListNode l1, ListNode l2, int carry)
+        {
+            if (l1 == null && l2 == null && carry == 0) return null;
+
+            var sum = carry + (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0);
+            carry = sum / 10;
+
+            var newListNode = new ListNode(sum % 10);
+            newListNode.next = AddTwoNumbersRecursive(l1?.next, l2?.next, carry);
+
+            return newListNode;
+        }
     }
 }
